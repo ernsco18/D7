@@ -33,7 +33,7 @@ function odd(n) {
   console.log(array);
   for (let i = 0; i < n; i++) {
     if (array[i] % 2 !== 0) {
-      array.splice(i);
+      array.splice(i, 1);
     }
   }
   return array;
