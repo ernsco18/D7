@@ -42,24 +42,47 @@ console.log(odd(n));
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-
+const somma = (array) => {
+  let somma = 0;
+  array.forEach((element) => {
+    somma += element;
+  });
+  return somma;
+};
+console.log(somma([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+const reduceSommaNumeri = (array) => {
+  return array.reduce((accumulatore, elemento_corrente) => accumulatore + elemento_corrente, 0);
+};
 
+console.log(reduceSommaNumeri([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
-
+const newArray = (array, n) => {
+  return array.map((element) => element + n);
+};
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
-
+const lunghezza = (array) => {
+  return array.map((element) => element.lenght);
+};
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
-
+const odds = () => {
+  const array = [];
+  for (let i = 0; i < 100; i++) {
+    if (i % 2 !== 0) {
+      array.push(i);
+    }
+  }
+  return array;
+};
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
   {
