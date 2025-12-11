@@ -188,27 +188,66 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+const oldestMovie = (array) => {
+  let result = { Year: 2100 };
+  array.forEach((movie) => {
+    let currentYear = parseInt(movie.Year);
+    if (currentYear < result.Year) {
+      result = movie;
+    }
+  });
 
+  return result;
+};
+
+console.log(oldestMovie(movies));
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+const countMovies = (array) => {
+  return array.length;
+};
 
+console.log(countMovies(movies));
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
-
+const filmNames = (array) => {
+  let names = [];
+  array.forEach((array) => {
+    names.push(array.Title);
+  });
+  return names;
+};
+console.log(filmNames(movies));
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-
+const millennial = (array) => {
+  return array.filter((movies) => {
+    return parseInt(movies.Year) > 1999;
+  });
+};
+console.log(millennial(movies));
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+const sum = (array) => {
+  return array.reduce((acc, curr) => acc + parseInt(curr.Year), 0);
+};
 
+console.log(sum(movies));
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
-
+const getMovieById = function (array, id) {
+  return array.find((elem) => elem.imdbID === id);
+};
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+const getMovieByYear = function (array, year) {
+  return array.findIndex((elem) => parseInt(elem.Year) === year);
+};
+
+console.log(getMovieByYear(movies, 2005));
